@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* box布局 */
+        .content1{
+            border-radius:5px;
+            border:solid 2px #ccc;
+            height: 300px;
+            width: 600px;
+            display: -webkit-box;
+            -webkit-box-orient:horizontal;
+            overflow: hidden;
+        }
+        .content1 .item{
+            /* width: 200px; */
+            height: 100%;
+            border:solid 2px #ccc;
+            text-align:center;
+            line-height: 300px;
+        }
+
+        /* flex布局 */
+        .content2{
+            margin-top:20px;
+            border:cadetblue 2px solid;
+            display: flex;
+            flex-wrap: nowrap;
+            width: 400px;
+            background:brown;
+            height: 400px;
+            justify-content: space-between;
+        }
+        .content2 .item{
+            width: 100px;
+            color:#fff;
+            height: 100%;
+            background: burlywood;
+            text-align: center;
+            line-height: 400px;
+        }
+
+        /* css2固定浮动 */
+        .content3{
+            width: 400px;
+            height: 400px;
+            background:chartreuse;
+            margin: 0 auto;           
+        }
+        .content3 .item{
+            float: left;
+            width: 100px;
+            height: 400px;
+            margin-right:30px;
+            background: cornflowerblue;
+            line-height: 400px;
+            text-align:center;
+        }
+
+        /* css2流体浮动 */
+        .content4{
+            width: 400px;
+            height: 400px;
+            margin:0 auto;
+            background: crimson;
+        }
+        .content4 .item:first-child{
+            width: 30%;
+        }
+        .content4 .item:nth-child(2){
+            width: 40%;
+        }
+        .content4 .item:last-child{
+            width: 30%;
+        }
+        .content4 .item{
+            float: left;
+            height:400px;
+            line-height: 400px;
+            text-align: center;
+        }
+
+        /* css2固定定位  拉回方式*/
+        .content5{
+            background: chartreuse;
+            width: 400px;
+            height: 400px;
+            border:solid #eee 1px;
+            position: relative;
+        }
+        .content5 .item{
+            position: absolute;
+            width: 200px;
+            height: 400px;
+            line-height: 400px;
+            text-align: center;
+        }
+        .content5 .item:last-child{
+            margin-left:200px;           
+        }
+
+        /* 流体固定 */
+        .content6{
+            margin-top:20px;
+            position: relative;
+            background: cyan;
+            width: 400px;
+            height: 400px;
+        }
+        .content6 .item{
+            position: absolute;
+            width: 33%;
+            line-height: 400px;
+            text-align: center;
+        }
+        .content6 .item:first-child{
+            left:0;
+        }
+        .content6 .item:nth-child(2){
+            left:33%;
+        }
+        .content6 .item:nth-child(3){
+            left:66%;
+        }
+    </style>
+</head>
+<body>
+    <!-- box布局 -->
+    <div class="content1">
+        <div class="item" style="-webkit-box-ordinal-group:1;-webkit-box-flex:1">栏目一</div>
+        <div class="item">栏目二</div>
+        <div class="item" style="-webkit-box-ordinal-group:1;-webkit-box-flex:2">栏目三</div>
+    </div>
+
+    <!-- flex布局 -->
+    <div class="content2">
+        <div class="item">栏目一</div>
+        <div class="item">栏目二</div>
+        <div class="item">栏目三</div>
+    </div>
+
+    <!-- css2 固定浮动 -->
+    <div class="content3">
+        <div class="item">栏目一</div>
+        <div class="item">栏目二</div>
+        <div class="item">栏目三</div>
+    </div>
+
+    <!-- css2流体浮动 -->
+    <div class="content4">
+        <div class="item">栏目一</div>
+        <div class="item">栏目二</div>
+        <div class="item">栏目三</div>
+    </div>
+
+    <!-- css2固定定位 -->
+    <div class="content5">
+        <div class="item">栏目一</div>
+        <div class="item">栏目二</div>
+    </div>
+
+    <!-- 流体固定 -->
+    <div class="content6">
+        <div class="item">栏目一</div>
+        <div class="item">栏目二</div>
+        <div class="item">栏目三</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 分栏 */
+        .columns{
+            border:solid #ccc 1px;
+            width: 500px;
+            height: 500px;
+            column-count:2 ;
+        }
+        .columns div{
+            border:seagreen solid 1px;
+        }
+
+        /* 第一种 */
+        /* .content{
+            width: 500px;
+            height: 500px;
+            display:inline-block
+        }
+        .content>.left{
+            width: 200px;
+            height: 500px;
+            border:solid 1px #f00;
+        }
+        .content>.right{
+            width: auto;
+            height: 500px;
+            border:solid 1px #00f;
+        } */
+
+
+        /* 第二种 */
+        /* .content{
+            width: 900px;
+            height: 500px;
+            display: box;
+            display:-moz-box;
+            display: -webkit-box;
+            display: -ms-box;
+            box-orient: horizontal;
+            -moz-box-ordinal:horizontal;
+            -webkit-box-ordinal:horizontal;
+        }
+        .content>.left{
+            width: 200px;
+            height: 500px;
+            border:solid 1px #f00;
+            box-flex: 2;
+            -moz-box-flex: 2;
+            -webkit-box-flex: 2;
+        }
+        .content>.right{
+            width: auto;
+            height: 500px;
+            border:solid 1px #00f;
+            box-flex: 1;
+            -moz-box-flex: 1;
+            -webkit-box-flex: 1;
+        } */
+
+        /* 第三种 */
+        .content{
+            position: relative;
+            width: 900px;
+            height: 500px;
+        }
+        .content .left{
+            position:absolute;
+            top:0;
+            left: 0;
+            width: 300px;
+        }
+        .content .center{
+            margin-left:300px;
+        }
+        .content  div{
+            width: 300px;
+            /* width: auto; */
+            float: left;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div class="columns">
+        <div>left</div>
+        <div>right</div>
+    </div>
+    <div class="content">
+        <div class="left">left</div>
+        <div class="center">center</div>
+        <div class="right">right</div>
+    </div>
+</body>
+</html>

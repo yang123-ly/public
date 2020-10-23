@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D魔方相册</title>
+    <style>
+        *{
+            border:0;
+            padding:0;
+        }
+        body{
+            perspective: 2000px;
+        }
+        .wrapper{
+            width:200px;
+            height: 200px;
+            /* border:1px solid #000; */
+            margin:300px  auto 0;
+            position: relative;
+            transform: rotateX(30deg) rotateY(-80deg);
+            /* 设置关键帧动画
+               donghua为关键帧名称
+               动画执行时间
+               动画执行速率，
+               循环
+            应用场合   
+            1、做无休止运动
+            2、座往返运动，并且希望有动画次数限制的时候
+            3、由中间效果
+
+             */
+            animation:donghua  linear 20s infinite;
+            transform-style: preserve-3d;
+        }
+        @keyframes donghua{
+            from {
+                transform: rotateX(0deg) rotateY(0deg);
+            }
+            to {
+                transform: rotateX(360deg) rotateY(360deg);
+            }
+        }
+        .min-box,.max-box{
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            left:50%;
+            top:50%;
+            transform:translate(-50%,-50%);
+            /* 希望当前为立体效果 */
+            transform-style: preserve-3d;
+            /* 设置过度动画效果 */
+            transition: all 2s;
+        }
+        
+        .wrapper:hover .max-box{
+            height: 300px;
+            width: 300px;
+        }
+        .item{
+            width:100%;
+            height: 100%;
+            background-size: 100%;
+            background-position: center;
+            position: absolute;
+            transition: all 2s;    
+            opacity: 0.9;
+        }
+        .wrapper:hover .max-box .item{
+            width:300px;
+            height: 300px;
+            transition: all 2s;
+        }
+        .item1{
+            background-image: url(img/1.jpg);
+            /* 沿着z轴平移 */
+            transform: translateZ(100px);
+            
+            /* transition: all 2s; */
+            
+        }
+        .wrapper:hover .max-box .item1{
+            transform: translateZ(300px);
+        }
+        .item2{
+            background-image: url(img/2.jpg);
+            /* 沿着Y轴旋转90度 z轴平移100像素 */
+            transform: rotateY(90deg) translateZ(100px);
+        }
+        .wrapper:hover  .max-box .item2{
+            transform: rotateY(90deg) translateZ(300px);
+        }
+        .item3{
+            background-image: url(img/1.jpg);
+            transform: rotateY(-90deg) translateZ(100px);
+        }
+        .wrapper:hover .max-box .item3{
+            transform: rotateY(-90deg) translateZ(300px);
+        }
+        .item4{
+            background-image: url(img/1.jpg);
+            transform: rotateY(180deg) translateZ(100px);
+        }
+        .wrapper:hover .max-box .item4{
+            transform: rotateY(180deg) translateZ(300px);
+        }
+        .item5{
+            background-image: url(img/1.jpg);
+            transform: rotateX(90deg) translateZ(100px);
+        }
+        .wrapper:hover .max-box .item5{
+            transform: rotateX(90deg) translateZ(300px);
+        }
+        .item6{
+            background-image: url(img/1.jpg);
+            transform: rotateX(-90deg) translateZ(100px);
+        }
+        .wrapper:hover .max-box .item6{
+            transform: rotateX(-90deg) translateZ(300px);
+        }
+    </style>
+</head>
+<body>
+        <div class="wrapper">
+            <div class="min-box">
+                <div class="item item1"></div>
+                <div class="item item2"></div>
+                <div class="item item3"></div>
+                <div class="item item4"></div>
+                <div class="item item5"></div>
+                <div class="item item6"></div>
+            </div>
+            <div class="max-box">
+                <div class="item item1"></div>
+                <div class="item item2"></div>
+                <div class="item item3"></div>
+                <div class="item item4"></div>
+                <div class="item item5"></div>
+                <div class="item item6"></div>
+            </div>
+        </div>
+</body>
+</html>

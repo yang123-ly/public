@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*css2盒子模型*/
+        .css2{
+            width: 200px;
+            height: 200px;
+            padding:10px;
+            margin:10px;
+            background:tomato;
+            text-align: center;
+            line-height: 200px;
+        }
+        .css3{
+            width: 200px;
+            height: 200px;
+            padding:10px;
+            margin:10px;
+            text-align: center;
+            line-height: 200px;
+            background:thistle;
+            box-sizing: border-box;
+            outline:#d7e90f 7px solid;
+        }
+        /*表格*/
+        .table-caption{
+            display: table;
+            height: 300px;
+            width: 300px;
+            border:solid sienna 2px;
+        }
+        .table-caption .thead{
+            display: table-header-group;
+            background:#000;
+            color:#fff;
+            
+        }
+        .table-caption .thead div{
+            width: 100px;
+            line-height:100px;
+            height: 100px;
+            float: left;
+        }
+        .table-caption .tbody>div{
+            width: 300px;
+            height: 100px;
+            display: table-row;
+            line-height: 100px;
+        }
+        .table-caption .tbody>div>div{
+            margin:0;
+            width: 100px;
+            height: 100px;
+            display:inline-block;
+            font-size:16px;
+        }
+        .table-caption .tfoot{
+            height: 100px;
+            display: table-footer-group;
+
+        }
+        .table-caption .tfoot div{
+            line-height: 100px;
+            width:100px;
+            text-align: center;
+            display:table-cell;
+        }
+
+        /* 书页 */
+        div.books{
+            width: 300px;
+            height: 500px;
+            box-shadow:5px 5px 5px #555;
+        }
+        .books .book{
+            width:293px;
+            height: 493px;
+            box-shadow:5px 5px 5px #555;
+        }
+        .books .book>div{
+            width: 286px;
+            height: 486px;
+            box-shadow:5px 5px 5px #555;
+        }
+        .books .book>div>div{
+            width: 279px;
+            height: 482px;
+            box-shadow:5px 5px 5px #555;
+        }
+        .books .book div>div>div{
+            width: 272px;
+            height: 477px;
+            box-shadow:5px 5px 5px #555;
+        }
+        
+        /* 相册效果 */
+        .pic{
+            margin-top:30px;
+            width: 300px;
+            height: 300px;
+        }
+        .pic img{
+            width:285px;
+            height: 258px;
+            border:solid 5px #d7e90f;
+        }
+
+        /* 圆形图标 */
+        .nav{
+            height: 200px;
+            width: auto;
+        }
+        .nav a{
+            display: inline-block;
+            background:#ab0000;
+            color:#fff;
+            width: 50px;
+            height: 50px;
+            text-decoration: none;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="css2">css2</div>
+    <div class="css3">css3</div>
+
+    <!-- css表格 -->
+    <div class="table-caption">
+        <thead>
+            <div class="thead">
+                <div>姓名</div>
+                <div>语文</div>
+                <div>数学</div>
+            </div>
+        </thead>
+        <tbody>
+            <div class="tbody">
+                <div>
+                    <div>赵一</div>
+                    <div>88</div>
+                    <div>100</div>
+                </div>
+                <div>
+                    <div>赵一</div>
+                    <div>78</div>
+                    <div>100</div>
+                </div>
+                <div>
+                    <div>赵一</div>
+                    <div>98</div>
+                    <div>100</div>
+                </div>
+            </div>
+        
+        </tbody>
+        <tfoot>
+            <div class="tfoot">
+                <div>核实</div>
+            </div>
+        </tfoot>
+    </div>
+
+    <!-- 利用投影做书页效果 -->
+    <div class="books">
+        <div class="book">
+            <div>
+                <div>
+                    <div>
+                        <div>
+                            <div>这是一本书</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 相册效果 -->
+    <div class="pic">
+        <img src="./3d立体相册旋转/img/1.jpg" alt="">
+    </div>
+
+    <!-- 圆形图标导航 -->
+    <div class="nav">
+        <a href="#">淘宝</a>
+        <a href="#">京东</a>
+        <a href="#">天猫</a>
+        <a href="#">苏宁</a>
+    </div>
+
+</body>
+</html>

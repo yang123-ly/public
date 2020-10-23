@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+            @font-face {
+            font-family: 'wingding';
+            src: url('./fonts/wingding.ttf') format('trueType');
+            }
+            .p1{
+                font-family: 'wingding';
+            }
+        p{
+            width: 200px;
+            text-indent: 32px;/*文章缩进效果一般不用空格，可以用css3中的text-indent，第二种可以加空span，然后给span加上宽度*/
+
+            text-overflow: ellipsis;/*加省略号三件套 text-overflow，white-space,overflow:hidden,这里替换原来用js的限制长度的标题*/
+
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .main{
+            width: 800px;
+            height: 300px;
+            vertical-align: middle;
+        }
+        .main img{
+            width: 100px;
+            height:300px;
+        }
+        .bottom{
+            width: 600px;
+            height: 600px;
+            border:1px solid #ccc;
+        }
+        div#div1{
+            height: 500px;
+            width:500px;
+            border:10px solid #fff;
+            -moz-border-bottom-colors:#555 #666 #777 #888 #999 #aaa #bbb #ccc
+        }
+        div#div2{
+            height: 300px;
+            width: 300px;
+            border:solid 1px #f00;
+
+            /*圆角的div，里面内容显示按照指教显示
+            单独设置一个角应该是先上下，再左右
+            设置圆形，给一个正方形设置圆角半径是正方形边长的一半*/
+            /* border-top-left-radius: 100px;
+            border-top-right-radius:100px; */
+            border-radius:50%;
+        }
+        img{
+            width: 200px;
+            height:200px;
+            border-radius: 100px;
+            border:solid 3px #0f0;
+        }
+        .t{
+            display: table;
+            width: 300px;
+            height:300px;
+            border-collapse:collapse;
+        }
+        .t>div{
+            display: table-row;
+        }
+        .t>div>div{
+            display: table-cell;
+        }
+        .list div{
+            display: list-item;
+            list-style: square;
+            margin-left:20px;/*需要手动进行缩进*/
+        }
+        .div3{
+            width: 300px;
+            height: 300px;
+            box-shadow: 5px 5px 2px #f00;
+        }
+        .shadow div{
+            width: 200px;
+            height: 200px;
+            margin:10px;
+            border:solid 1px #eee;
+            float: left;
+            border-radius: 10px;
+            transition: all 2s;
+        }
+        .shadow div:hover{
+            box-shadow: 5px 5px 5px #777;
+            translate: all 2s;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <p>台州女子将女儿隐私告诉再婚丈夫，埋下隐患</p>
+    <img src="./3d立体相册-渡一/img/1.jpg" alt="">
+    </div>
+    <div>
+        <p class="p1">t</p>
+    </div>
+    <div class="bottom"></div>
+
+    <div id="div1"></div>
+    <div id="div2"></div>
+    <img src="./3d立体相册-渡一/img/1.jpg" alt="">
+    <!-- <div style='-o-border-image: url(img/);'></div> -->
+    <div class="t">
+        <div>
+            <div>1</div>
+            <div>1</div>
+            <div>1</div>
+        </div>
+        <div>
+            <div>2</div>
+            <div>2</div>
+            <div>2</div>
+        </div>
+        <div>
+            <div>3</div>
+            <div>3</div>
+            <div>3</div>
+        </div>
+    </div>
+    <div class="list">
+        <div>列表</div>
+        <div>列表</div>
+        <div>列表</div>
+    </div>
+    <div class="div3"></div>
+    <div class="shadow">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <script>
+        console.log('a');
+        setTimeout(function() {
+            console.log('b')
+        },2000);
+        console.log('c');
+    </script>
+</body>
+</html>

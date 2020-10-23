@@ -1,0 +1,107 @@
+<html>
+   <head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">   <style type="text/css">
+      #content{
+        width: 300px;
+        height: 200px;
+        border:solid #ccc 1px;
+        box-shadow: 3px 3px 2px #eee;
+        border-radius: 10px;
+        position: relative;
+      }
+      #top{
+      width: 300px;
+      height: 100px;
+      border-bottom: solid 1px #ccc;
+      border-top-left-radius:9px;
+      border-top-right-radius:9px;
+      background: #eee;
+      }
+      #bottom{
+        width: 300px;
+      height: 100px;
+      position: relative;
+      }
+      #but{
+        width: 60px;
+        height: 30px;
+        background: #00f;
+        border-radius: 5px;
+        position: absolute;
+        left: 200px;
+        top: 40px;
+        overflow: hidden;
+        -webkit-transition:background-color 1s linear 1s;
+        /*//用js改变left位置时延迟6秒*/
+        -webkit-transition:left 3s linear 6s;
+      }
+      #left{
+        width: 1px;
+        height: 6px;
+        background: #ff0;
+        position: absolute;
+        left: 0px;
+        top: 12px;
+        display: block;
+        /*用js改变宽度时延迟3秒*/
+        -webkit-transition:width 3s linear 3s;
+      }
+      #right{
+        width: 40px;
+        height: 6px;
+        background: #ff0;
+        position: absolute;
+        left: 60px;
+        top: 12px;
+        display: block;
+        /*用js改变left时延迟3秒*/
+        -webkit-transition:left 3s linear 3s;
+      }
+      /*第一组动画序列*/
+       @-webkit-keyframes 'one'{
+      30%{
+        -webkit-transform:scale(1.2);
+        
+      }
+      60%{
+        -webkit-transform:scale(0.9);
+        
+      }
+      
+      100%{
+        -webkit-transform:scale(1);
+        
+      }
+
+    }
+    /*单击按钮时调用这个类，执行时间为3s之后里面的黄条会延迟3s在加载*/
+    .oned{
+      
+      -webkit-animation-name:'one';
+      
+      -webkit-animation-duration:3s;
+     
+      -webkit-animation-iteration-count:1;
+    }
+    
+    </style>  
+   </head>
+   <body >
+    <div id="content">
+      <div id="top"></div>
+      <div id="bottom">
+        <p id="but"><span id="left"></span><span id="right"></span></p>
+      </div>
+    </div>
+    <script type="text/javascript">
+       var butb=document.getElementById("but");
+       butb.onclick=function(){
+           this.className+="oned";
+           this.style.backgroundColor="#f00";
+           document.getElementById("left").style.width="20px";
+           document.getElementById("right").style.left="20px";
+           this.style.left="10px";
+       }
+    </script>
+   </body>
+</html>

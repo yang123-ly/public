@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+  	<meta charset="utf-8">
+  	<title>html5</title>
+  	<style type="text/css">
+    a:link{
+      text-decoration:none;
+    }
+    div>a{
+      display: inline-block;
+      text-align: center;
+      width: 120px;
+      padding: 8px;
+      background-color: #eee;
+      border:2px solid #000;
+      border-radius: 20px;
+    }
+    @-webkit-keyframes 'fisheye'{
+      /*定义动画开始处的关键帧*/
+      0%{
+        -webkit-transform:scale(1);
+        background-color: #eee;
+        border-radius: 10px;
+      }
+      /*定义动画40%处的关键帧*/
+      40%{
+        -webkit-transform:scale(1.5);
+        background-color: #bbb;
+        border-radius: 10px;
+      }
+      
+      /*定义动画100%处的关键帧*/
+      100%{
+        -webkit-transform:scale(1);
+        background-color: #eee;
+        border-radius: 10px;
+      }
+
+    }
+    /*为鼠标悬停定义div*/
+    div>a:hover{
+      /*指定执行fisheye动画*/
+      -webkit-animation-name:'fisheye';
+      /*指定执行动画时间*/
+      -webkit-animation-duration:3s;
+      /*指定执行动画无限循环*/
+      -webkit-animation-iteration-count:infinite;
+    }
+  	</style>
+  <body>
+    <div>
+    <a href="#">公司首页</a>
+    <a href="#">公司文化</a>
+    <a href="#">公司简介</a>
+    <a href="#">公司发展</a>
+  </div>
+  </body>
