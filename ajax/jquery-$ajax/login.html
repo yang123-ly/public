@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>用jQuery实现$.ajax功能</h2>
+    <form action="" name="form1" class="form1">
+        用户名：<input type="text" name="username" class="username">
+        密码：<input type="password" name="userpwd" class="userpwd">
+        <input type="hidden" name="type" value="2">
+        班级：<input type="text" name="class" class="userclass">
+        <input type="button" value="登录" name="but" class="but">
+
+    </form>
+    <script src="./jquery-1.11.2.min.js"></script>
+    <script>
+        $(function() {
+            var str = '';
+            var username = document.form1.username;
+            var userpwd = document.form1.userpwd;
+            var userclass = document.form1.userclass;
+            $('.but').click(function() {
+                $.ajax({
+                url:"http://www.qhdlink-student.top/student/login.php",
+                type:"post",
+                // dataType:"json",
+                data:`username=${$('.form1 .username').val()}&userpwd=${$('.form1 .userpwd').val()}&userclass=${$('.form1 .userclass').val()}&type=2`,
+                success:function(data) {
+                    location.replace('index.html')
+                }
+            })
+            })
+
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 不用ajax -->
+    <!-- <form action="http://www.qhdlink-student.top/student/login.php" method="POST" name="form1">
+        用户名：<input type="text" name="username">
+        密码：<input type="password" name="userpwd">
+        班级；<input type="number" name="userclass">
+        <input type="hidden" name="type" value="2">
+        <input type="submit" value="登录" name="sub">
+    </form> -->
+
+    <!-- 用ajax做法 -->
+    <form action="GET" name="form2">
+        用户名：<input type="text" id="name" name="username">
+        密码：<input type="password" name="userpwd">
+        班级: <input type="number" name="userclass">
+        <input type="hidden" name="type" value="2">
+        <input type="button" value="登录" name="sub">
+    </form>
+    <script>
+        
+
+        document.form2.sub.onclick = function() {
+            var username = document.form2.username.value;
+            var userpwd = document.form2.userpwd.value;
+            var userclass = document.form2.userclass.value;
+            var resData = 'username=' + username + '&userpwd=' +userpwd + '&userclass=$'+ userclass +'&type=2'
+            
+            var xmlHttp;
+            if(window.XMLHttpRequest) {
+                xmlHttp = new XMLHttpRequest()
+            }else if(window.ActiveXObject) {
+                xmlHttp = new ActiveXObject("Microsoft.XMLHTTP")
+            }
+            xmlHttp.open("post","http://www.qhdlink-student.top/student/login.php",true);
+            xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+            xmlHttp.onreadystatechange = change;
+            // xmlHttp.send("username=ld&userpwd=12345678&userclass=61&type=2");
+            function change() {
+                if(xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+                    var str = xmlHttp.responseText;
+                    console.log(str);
+                    if(str == 'ok'){
+                        location.replace("index.html");
+                    }
+                }
+            }
+
+            xmlHttp.send(`username=${username}&userpwd=${userpwd}&userclass=${userclass}&type=2`);
+            // xmlHttp.send('username=' + username + '&userpwd=' +userpwd + '&userclass=$'+ userclass +'&type=2');
+        }
+       
+    </script>
+</body>
+</html>

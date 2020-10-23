@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <form action="" name="form1">
+        <input type="text" name="username">
+        <input type="text" name="userpwd">
+        <input type="button" name="but" value="登录">
+    </form>
+    <table>
+        <tr>
+            <td>序列号</td>
+            <td>名称</td>
+            <td>生产日期</td>
+            <td>到期日期</td>
+            <td>价钱</td>
+            <td>类型号</td>
+            <td>折扣</td>
+            <td>图片</td>
+        </tr>
+    </table>
+    <script src="./jquery-$ajax/jquery-1.11.2.min.js"></script>
+    <script>
+        
+        $(function() {
+            $("input[name=but]").click(function(){
+                var fd = new FormData();
+                fd.append("username",$('input[name=username]').val())
+                fd.append("userpwd",$("input[name=userpwd]").val())
+                fd.append("userclass",61);
+                fd.append("type",2);
+                $.ajax({
+                    url:"http://www.qhdlink-student.top/student/coacha.php",
+                    type:"POST",
+                    async:true,
+                    data:fd,
+                    processData:false,
+                    contentType:false,
+                    success:function(msg){
+                        var obj = JSON.parse(msg);
+                        console.log(obj);
+                        str = '';
+                        var num = 0;
+                        $.each(obj,function(i,v){
+                            str += `<tr>
+                                <td>${v.id_coach}</td>
+                                <td>${v.name_coach}</td>
+                                <td>${v.dage_coach}</td>
+                                <td>${v.tage_coach}</td>
+                                <td>${v.type_coach}</td>
+                                <td>${v.evaluate_coach}</td>
+                                <td>${v.honor_coach}</td>
+                                <td><img src="http://www.qhdlink-student.top/${v.path_coach}"></td>
+                            </tr>`
+                            
+                            if(parseInt(v.honor_coach) > 0){
+                                var honer = parseInt(v.honor_coach) * 0.1;
+                            }else{
+                                var honer = parseFloat(v.honor_coach)
+                            }
+                            var type = parseInt(v.type_coach);
+                            console.log(type);
+                            num += honer * type;
+                            
+                        })
+                        $("table").append(str);
+                        var numfix = (num).toFixed(2);
+                        var allinner =`
+                            <tr>
+                                <td>总价</td>
+                                <td>${numfix}元</td>
+                            </tr>
+                            `
+                        $("table").append(allinner);
+                    }
+                })
+            })
+        })
+    </script>
+</body>
+</html>

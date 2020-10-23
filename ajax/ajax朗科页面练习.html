@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #msg{
+            width: 1000px;
+            height: auto;
+            min-height:100px;
+            border-radius: 10px;
+            margin:0 auto;
+            overflow: hidden;
+        }
+        #msg>div{
+            border-radius: 10px;
+            width: 480px;
+            height: 159px;
+            box-sizing: border-box;
+            overflow: hidden;
+            display: inline-block;
+            margin-top:15px;
+            margin-bottom:15px;
+            margin-left:10px;
+            background: cornsilk;
+            box-shadow: 5px 5px 5px #ccc;
+            
+        }
+        #msg .left{
+            width: 48%;
+            height: 100%;
+            float: left;
+            text-align: center;
+            
+            line-height: 100%;
+
+        }
+        #msg .left img{
+            width: 150px;
+            border-radius: 50%;
+        }
+        #msg .right h2{
+            text-align: center;
+            color: #ccc;
+        }
+        #msg .right span{
+            text-indent: 2em;
+            display: -webkit-box;		
+            -webkit-box-orient: vertical; /* 如果浏览器内核不是WebKit的话就无法支持该方法 */ 
+            -webkit-line-clamp: 3;		/* 希望三行后溢出显示省略号 */ 
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div id="msg">
+
+    </div>
+    <!-- <script>
+        //一、创建ajax对象
+        var xmlHttp;
+        if(window.XMLHttpRequest) {
+            xmlHttp = new XMLHttpRequest();
+
+        }else if(window.ActiveXObject) {
+            xmlHttp = new ActiveXObject("Microsoft.XMLHTTP")
+        }
+        //二、打开链接
+        xmlHttp.open("get","http://www.qhdlink-student.top/test/teacher.php",true);
+        // 三、设置头部信息
+        xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+        // 四、设置响应信息
+        xmlHttp.onreadystatechange = change;
+        xmlHttp.send("username=zs&pwd=12345678&userclass=61&type=2");
+        function change(){
+            // console.log("readyState-" + xmlHttp.readyState);
+            // console.log("status" + xmlHttp.status);
+            // console.log("接受到的信息" + xmlHttp.responseText);
+            if(xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+                console.log("接受到的信息" + xmlHttp.responseText);
+                var str = xmlHttp.responseText;
+                
+                var obj = eval(str);
+
+                var msg = document.getElementById("msg");
+
+
+                for(var i = 0;i < obj.length;i ++) {
+                    console.log(obj[i].name_t);
+                    var d = document.createElement('div');
+                    var h = document.createElement("h2");
+                    var img = document.createElement('img');
+                    img.src = obj[i].pic;
+                    h.innerHTML = obj[i].name_t;
+                    var s = document.createElement("span");
+                    s.innerHTML = obj[i].msg_t;
+                    var divLeft = document.createElement('div');
+                    divLeft.className = "left";
+                    var divRight = document.createElement("div");
+                    divRight.className = 'right';
+                    divLeft.appendChild(img);
+                    d.appendChild(divLeft);
+                    d.appendChild(divRight);
+                    divRight.appendChild(h);
+                    divRight.appendChild(s);
+                    msg.appendChild(d);
+                }
+            }else{
+                console.log("连接阶段");
+            }
+
+        }
+        
+
+
+    </script> -->
+    <script src="./getAjax.js"></script>
+    <script>
+        function createDiv(str){
+            var obj = eval(str);
+            var msg = document.getElementById("msg");
+            for(var i = 0;i < obj.length;i ++) {
+                    console.log(obj[i].name_t);
+                    var d = document.createElement('div');
+                    var h = document.createElement("h2");
+                    var img = document.createElement('img');
+                    img.src = obj[i].pic;
+                    h.innerHTML = obj[i].name_t;
+                    var s = document.createElement("span");
+                    s.innerHTML = obj[i].msg_t;
+                    var divLeft = document.createElement('div');
+                    divLeft.className = "left";
+                    var divRight = document.createElement("div");
+                    divRight.className = 'right';
+                    divLeft.appendChild(img);
+                    d.appendChild(divLeft);
+                    d.appendChild(divRight);
+                    divRight.appendChild(h);
+                    divRight.appendChild(s);
+                    msg.appendChild(d);
+                }
+        }
+
+        getData(createDiv,'post','http://www.qhdlink-student.top/test/teacher.php',true)
+    </script>
+</body>
+</html>

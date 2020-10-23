@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        label{
+            display: block;
+            margin-bottom:20px;
+        }
+    </style>
+</head>
+<body>
+    <form action="GET" name="form2">
+        <label for="">用户名：<input type="text" id="name" name="username"><span class="nameMsg"></span></label>
+        <label for="">密码：<input type="password" name="userpwd"><span class="pwdMsg"></span></label>
+        <label for="">班级: <input type="number" name="userclass"><span class="classMsg"></span></label>
+        <label for=""><input type="hidden" name="type" value="2"></label>
+        <label for=""><input type="button" value="登录" name="sub"></label>
+    </form>
+    <div class="errorMsg"></div>
+
+    <script src="./getAjax.js"></script>
+    <script>
+
+        var usernames = document.form2.username;
+        var nameMsg = document.getElementsByClassName("nameMsg")[0];
+        var userpwds = document.form2.userpwd;
+        var pwdMsg = document.getElementsByClassName("pwdMsg")[0];
+        var userclasss = document.form2.userclass;
+        var classMsg = document.getElementsByClassName("classMsg")[0];
+        var errorMsg = document.getElementsByClassName("errorMsg")[0];
+        usernames.onkeyup = function() {
+            var usernameValue = usernames.value;
+            var nameTest = /^(13|15|17|18|19)[0-9]{9}$/;
+            if(!nameTest.test(usernameValue)){
+                nameMsg.innerHTML='输入格式错误'
+            }
+        }
+        document.form2.sub.onclick = function() {
+            var username = usernames.value;
+            var userpwd = userpwds.value;
+            var userclass = userclasss.value;
+            var checkForm = 'username=' + username + '&userpwd=' +userpwd + '&userclass='+ userclass +'&type=2';
+            console.log(checkForm);
+            function checkData(str) {
+                console.log(str)
+                if(str == 'ok') {
+                    location.replace("Ajax封装.html")
+                }else{
+                    errorMsg.innerHTML = "登录错误"
+                }
+            }
+            getData(checkData,'post','http://www.qhdlink-student.top/student/login.php',true,checkForm);
+        }
+
+        
+    </script>
+</body>
+</html>

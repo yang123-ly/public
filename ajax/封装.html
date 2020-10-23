@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <form name="form1" method="GET" action="http://www.qhdlink-student.top/student/login.php">
+      用户名：<input type="text" id="username">
+      密码：<input type="password" id="userpwd">
+      班级：<input type="text" id="userclass" name="type">
+      <input type="hidden" value="2">
+      <input type="button" value="登录" name="but">
+</form>
+  <div id="msg"></div>
+  <div id="showmsg"></div>
+  <!-- method:方式可以去get或者post
+  URL：接口地址
+  asy：类型布尔类型，true异步，false同步
+  data：向后台提交数据，格式为urlencode格式
+  fn：有参函数，参数是后端的返回值 -->
+  <script>
+   function getDate(fn,method,url,asy,data){
+      //创建ajax对象
+      var xmlHttp;
+      if(window.XMLHttpRequest){
+        xmlHttp= new XMLHttpRequest();
+      }else if(window.ActiveXObject){
+        xmlHttp= new ActiveXObject("Microsoft.XMLHTTP");
+      }
+      //打开链接
+      xmlHttp.open(method,url,asy);
+      //设置头信息
+      xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+      //设置响应信息
+      xmlHttp.onreadystatechange=change;
+      //发送数据
+      // xmlHttp.send(data);
+      if(data){
+        xmlHttp.send(data);
+      }else{
+        xmlHttp.send();
+      }
+      function change(){
+      if(xmlHttp.readyState==4 && xmlHttp.status==200){
+          var str=xmlHttp.responseText;
+          fn(str);
+      }else{
+        console.log("链接阶段");
+      }
+
+
+      }
+
+}
+    function getTeacher(d){
+      var obj=eval(d);
+      var msg=document.getElementById("msg");
+      var str="";
+      for(var i=0;i<obj.length;i++){
+        str+=obj[i].name_t+"<br>";
+      }
+      msg.innerHTML=str;
+    }
+    document.form1.but.onclick=function(){
+      var names=document.form1.username.value;
+      var pwd=document.form1.userpwd.value;
+      var cla=document.form1.userclass.value;
+      var t=document.form1.type.value;
+      var postmsg="username="+names+"&userpwd="+pwd+"&userclass="+cla+"&type=2";
+      console.log(postmsg);
+      getDate(getLogin,"post","http://www.qhdlink-student.top/student/login.php",true,postmsg);
+      function getLogin(g){
+        console.log(g);
+        if(g=="ok"){
+        location.href="ajax.html"
+        }else{
+          document.getElementById("showmsg").innerHTML="用户名或密码错误";
+        }
+    }
+    }
+    // getDate(getTeacher,"get","http://www.qhdlink-student.top/test/teacher.php",true);
+    // function getLogin(g){
+    //   console.log(g);
+    // }
+   
+    
+  </script>
+</body>
+</html>

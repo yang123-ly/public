@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #msg{
+            width:1000px;
+            padding:10px;
+            height: auto;
+            position: relative;
+        }
+        #msg>div{
+            width: 600px;
+            height: auto;
+            background:#eee;
+            border-radius: 4px;
+            margin:20px;
+            padding:10px;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div id="msg">
+    </div>
+    <form action="http://www.qhdlink-student.top/student/login.php" method="POST" name="form1">
+        用户名：<input type="text" name="username">
+        密码：<input type="password" name="userpwd">
+        班级；<input type="number" name="userclass">
+        <input type="hidden" name="type" value="2">
+        <input type="button" value="登录" name="sub">
+    </form>
+    <script>
+        //一、创建ajax对象
+        var xmlHttp;
+        if(window.XMLHttpRequest) {
+            xmlHttp = new XMLHttpRequest();
+
+        }else if(window.ActiveXObject) {
+            xmlHttp = new ActiveXObject("Microsoft.XMLHTTP")
+        }
+        //二、打开链接
+        xmlHttp.open("get","http://www.qhdlink-student.top/test/teacher.php",true);
+        // 三、设置头部信息
+        xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+        // 四、设置响应信息
+        xmlHttp.onreadystatechange = change;
+        xmlHttp.send("username=zs&pwd=12345678&userclass=61&type=2");
+        function change(){
+            // console.log("readyState-" + xmlHttp.readyState);
+            // console.log("status" + xmlHttp.status);
+            // console.log("接受到的信息" + xmlHttp.responseText);
+            if(xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+                console.log("接受到的信息" + xmlHttp.responseText);
+                var str = xmlHttp.responseText;
+                var obj = eval(str);
+                console.log(obj)
+                var msg = document.getElementById("msg");
+
+
+                for(var i = 0;i < obj.length;i ++) {
+                    console.log(obj[i].name_t);
+                    var d = document.createElement('div');
+                    var h = document.createElement("h2");
+                    var img = document.createElement('img');
+                    img.src = obj[i].pic;
+                    h.innerHTML = obj[i].name_t;
+                    var s = document.createElement("span");
+                    s.innerHTML = obj[i].msg_t;
+                    d.appendChild(h);
+                    d.appendChild(s);
+                    d.appendChild(img);
+                    msg.appendChild(d);
+                }
+            }else{
+                console.log("连接阶段");
+            }
+            
+            // if(xmlHttp.readyState == 4 && xmlHttp.status == 200){
+            //     var str = xmlHttp.reponseText;
+            //     console.log(str);
+                
+            // }else{
+            //     console.log("连接阶段")
+            // }
+        }
+        // 五、发送
+        
+
+
+    </script>
+</body>
+</html>

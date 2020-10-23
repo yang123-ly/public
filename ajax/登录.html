@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <form name="form1" method="GET" action="">
+    用户名：<input type="text" id="username">
+    密码：<input type="password" id="userpwd">
+    班级：<input type="text" id="userclass" name="type">
+    <input type="hidden" value="2">
+    <input type="button" value="登录" name="but">
+</form>
+  <script>
+    function getData(fn,method,url,asy,data){
+      var xmlHttp;
+      if(window.XMLHttpRequest){
+        xmlHttp=new XMLHttpRequest();
+      }else if(window.ActiveXObject){
+        xmlHttp = new ActiveXObject("Microfot.xmlHttp");
+      }
+      xmlHttp.open(method,url,asy)
+      xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+      xmlHttp.onreadystatechange=change;
+      if(data){
+        xmlHttp.send(data);
+      }else{
+        xmlHttp.send();
+      }
+      function change(){
+        if(xmlHttp.readyState==4 && xmlHttp.status==200){
+          var str=xmlHttp.responseText;
+         fn(str);
+      }else{
+        console.log("链接阶段");
+      }
+      }
+     
+    }
+    document.form1.but.onclick=function(){
+        var names=document.form1.username.value;
+        var pwd=document.form1.userpwd.value;
+        var cla=document.form1.userclass.value;
+        var t=document.form1.type.value;
+        var postmsg="username="+names+"&userpwd="+pwd+"&userclass="+cla+"&type="+t;
+        getData(getLogion,"post","http://www.qhdlink-student.top/student/login.php",true,postmsg);
+      }
+      function getLogion(str){
+        console.log(str);
+      }
+  </script>
+</body>
+</html>

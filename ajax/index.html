@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>朗科老师</title>
+    <style>
+
+        h2{
+            text-align: center;
+        }
+        #msg{
+            width: 1000px;
+            height: auto;
+            min-height:100px;
+            border-radius: 10px;
+            margin:0 auto;
+            overflow: hidden;
+        }
+        #msg>div{
+            border-radius: 10px;
+            width: 480px;
+            box-sizing: border-box;
+            overflow: hidden;
+            display: inline-block;
+            margin-top:15px;
+            margin-bottom:15px;
+            margin-left:10px;
+            background: cornsilk;
+            box-shadow: 5px 5px 5px #ccc;
+            
+        }
+        .msg0>div{
+            height:159px;
+        }
+        #msg .left{
+            width: 48%;
+            height: 100%;
+            float: left;
+            text-align: center;
+        }
+        #msg .left img{
+            width: 150px;
+            border-radius: 50%;
+        }
+        #msg .right h2{
+            text-align: center;
+            color: #ccc;
+        }
+        #msg .right span{
+            text-indent: 2em;
+            display: -webkit-box;		
+            -webkit-box-orient: vertical; /* 如果浏览器内核不是WebKit的话就无法支持该方法 */ 
+            -webkit-line-clamp: 3;		/* 希望三行后溢出显示省略号 */ 
+            overflow: hidden;
+        }
+        .msg1>div{
+            height: 245px;
+        }
+        .msg1 .left{
+            line-height: 235px
+        }
+        .msg1 img{
+            vertical-align: middle;
+        }
+    </style>
+
+
+    <style>
+        .newTeacher{
+            text-align: center;
+            width: 100%;
+            margin:0 auto;
+            height: 864px;
+            background: #fff;
+            position: fixed;
+            display: none;
+            z-index:10;
+            top:0;
+            left:0;
+        }
+
+    </style>
+
+    <style>
+           #banner{
+                width: 716.8px;
+                height: 450.6px;
+                background-color: aquamarine;
+                margin: 100px auto;
+                position: relative;
+                font-size: 0px;  /*清除img图片间的回车符产生的间隔*/
+                overflow: hidden;
+            }
+   #banner #bannerImg{
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    white-space: nowrap; /*使这个图片能一行显示*/
+    transition:all 1s linear;
+   }
+   #banner #bannerImg .img{
+    width: 100%;
+   }
+   #banner #bannerButton{
+    text-align: center;
+    font-size: 16px;
+    color: white;
+    position: absolute;
+    bottom: 10px;
+    left: 280px;
+   }
+   #banner #bannerButton .Button{
+    border-radius: 9px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background-color: #7FFFD4;
+   }
+   #banner #bannerButtonAside .div1{
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    margin-top: -32px;
+    cursor: pointer;
+   }
+    
+   #banner #bannerButtonAside .div2{
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    margin-top: -32px;
+    cursor: pointer;
+   }
+    </style>
+</head>
+<body>
+    <h2 >老师简介</h2>
+    <div id="msg" class="msg0">
+        <!-- <div>
+            <div class="left"><img src="" alt=""></div>
+            <div class="right">
+                <h2></h2>
+                <span></span>
+            </div>
+        </div> -->
+    </div>
+    <h2>老师详细信息</h2>
+    <div id="msg" class="msg1">
+
+    </div>
+
+    <p style="text-align: center;" class="addTea">
+        <button>添加新老师</button>
+    </p>
+
+    <div class="newTeacher">
+        <h2 class="addTea">添加新老师</h2>
+        <form action="" name="form2" id="form2">
+            姓名：<input type="text" name="name">
+            工作时间：<input type="text" name="workTime">
+            加入朗科时间：<input type="text" name="joinTime">
+            职位：<input type="text" name="position">
+            入职前职位：<input type="text" name="beforePos">
+            星级讲师<input type="text" name="level">
+            <h2 class="teaBut" style="background: rgb(180, 196, 226);border-radius: 5px;">提交</h2>
+        </form>
+    </div>
+    <section id="banner" onmouseover="changeStop()" onmouseout="changeStart()">
+    
+        <!--以下是我们的banner图-->
+        <div id="bannerImg">
+         <img class="img" src="./img/teacher/liu.jpg"/>
+         <img class="img" src="./img/teacher/ren.jpg"/>
+         <img class="img" src="./img/teacher/liu.jpg"/>
+         <img class="img" src="./img/teacher/liu.jpg"/>
+         <img class="img" src="./img/teacher/liu.jpg"/>
+         <!--第7张与第一张为同一图片，消除图片切换间断-->
+        </div>
+         
+        <!--以下是我们左下方的banner图按钮-->
+        <div id="bannerButton">
+         <button class="Button" onclick="buttonChange(0)">1</button>
+         <button class="Button" onclick="buttonChange(1)">2</button>
+         <button class="Button" onclick="buttonChange(2)">3</button>
+         <button class="Button" onclick="buttonChange(3)">4</button>
+        </div>
+         
+        <!--以下是我们左右两个方向按钮-->
+        <div id="bannerButtonAside">
+         <div class="div1" onclick="asideChange(1)">
+          <img src="./img/teacher/next.png"/>
+         </div>
+         <div class="div2" onclick="asideChange(0)">
+          <img src="./img/teacher/before.png"/>
+         </div>
+        </div>
+       </section>
+    
+    <script src="./getAjax.js"></script>
+    <script>
+        /***
+        method:方法可以取get或者post
+        url:接口地址
+        asy：类型布尔类型，是否为异步处理，true为异步
+        fn：是有参函数，参数是后端的返回值
+        data:send传输的数据
+        */ 
+        function getData(fn,method,url,asy,data) {
+            var xmlHttp;
+            if(window.XMLHttpRequest) {
+                xmlHttp = new XMLHttpRequest()
+            }else if(window.ActiveXObject) {
+                xmlHttp = new ActiveXObject("Microsoft.XMLHTTP")
+            }
+            xmlHttp.open(method,url,asy);
+            xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+            xmlHttp.onreadystatechange = change;
+            if(data) {
+                xmlHttp.send(data);
+            }else{
+                xmlHttp.send();
+            }
+            function change() {
+                if(xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+                    var str = xmlHttp.responseText;                    
+                    fn(str)
+                }
+            }
+        }
+
+        function student(data) {
+            console.log(data)
+        }
+        getData(student,"post","http://www.qhdlink-student.top/student/login.php",true,"username=ld&userpwd=12345678&userclass=61&type=2")
+        
+
+        function getTeacher(data) {
+            var str = '';
+            var obj = eval(data);
+            var msg = document.getElementById("msg");
+            for(var i = 0;i < obj.length;i ++) {
+ 
+                    str += `
+                    <div>
+                        <div class="left"><img src="${obj[i].pic}" alt=""></div>
+                        <div class="right">
+                            <h2>${obj[i].name_t}</h2>
+                            <span>${obj[i].msg_t}</span>
+                        </div>
+                    </div>`
+            }
+            msg.innerHTML = str;
+
+        }
+        getData(getTeacher,"post","http://www.qhdlink-student.top/test/teacher.php",true);
+
+
+        //获取详细老师信息删除功能
+        function getNewTeacher(data) {
+            var str = '';
+            var obj = JSON.parse(data);
+            console.log(obj);
+            var msg1 = document.getElementsByClassName("msg1")[0];
+
+            //展示详细老师
+            function init(obj){
+                str = '';
+                for(i in obj){
+                str += `
+                    <div class="msg1Div">
+                    <div class="left">
+                        <img src="http://www.qhdlink-student.top/${obj[i].path_coach}" alt="">
+                    </div>
+                    <div class="right">
+                        <p>${obj[i].name_coach}</p>
+                        <p>工作时间：${obj[i].dage_coach}</p>
+                        <p>加入朗科时间：${obj[i].tage_coach}</p>
+                        <p>职位：${obj[i].honor_coach}</p>
+                        <p>入职前职位：${obj[i].type_coach}</p>
+                        <p>被誉为${obj[i].evaluate_coach}星级讲师<button class="del">删除</button></p>
+                    </div>
+                </div>
+                    `
+                }
+                msg1.innerHTML = str;
+                var div = document.getElementsByClassName("msg1Div");
+
+                //删除
+                for(let i = 0;i < div.length;i ++) {
+                    
+                    div[i].onclick = function() {
+                        delete obj[i];
+                        str = ''
+                        console.log(obj);
+                        var n = 0;
+                        var len = Object.keys(obj).length;                       
+                        console.log(len);
+                        var objNew = {};                        
+                        for(let v = 0;v < len;v ++) {
+                            objNew[v] = Object.values(obj)[v];
+                        }
+                        // objNew[1] = Object.values(obj)[1];
+                        obj = objNew;                       
+                        console.log(obj);
+                        init(obj);
+                    }
+                    
+                }
+            }
+            init(obj)
+            
+
+            //active用于控制页面的display
+            var active = true;   
+            var newTeacher = document.getElementsByClassName('newTeacher')[0];
+            //控制页面变化
+            function addDemo() {
+                
+                if(active == true) {
+                    newTeacher.style.display = "none";
+                }else{
+                    newTeacher.style.display = "block";
+                }
+            } 
+            function addTeacher(obj) {
+                var name = document.form2.name.value;
+                var workTime = document.form2.workTime.value;
+                var joinTime = document.form2.joinTime.value;
+                var position = document.form2.position.value;
+                var beforePos = document.form2.beforePos.value;
+                var level = document.form2.level.value;
+                var objLen = obj.length;
+                var data = {
+                    dage_coach:workTime,
+                    evaluate_coach:level,
+                    honor_coach:position,
+                    id_coach:"7",
+                    name_coach:name,
+                    path_coach: "updatepic/coaches/1563862745.jpg",
+                    tage_coach:joinTime,
+                    type_coach:beforePos,
+                }
+                obj[objLen]= data;
+                console.log(active);
+                active = true;
+                addDemo();
+                init(obj);
+                
+            }
+            document.getElementsByClassName("addTea")[0].onclick = function() {
+                console.log(active);
+                active = false;                
+                addDemo();
+            }
+            document.getElementsByClassName("teaBut")[0].onclick = function() {
+                active = true;
+                addDemo();
+                addTeacher(obj);
+            }
+        }
+
+        getData(getNewTeacher,'post',"http://www.qhdlink-student.top/student/coach.php",true,"username=ysf&userpwd=12345678&userclass=61&type=2");
+
+
+        // 展示学员banner信息
+        function getStudent(data) {
+            console.log(data);
+            var obj = JSON.parse(data);
+            console.log(obj[1].path_banner);
+            var imgs = bannerImg.querySelectorAll("img");
+            for(var i in obj) {
+                imgs[i].src = "http://www.qhdlink-student.top/"+ obj[i].path_banner
+            }
+            imgs[4].src = "http://www.qhdlink-student.top/"+ obj[0].path_banner
+        }
+        getData(getStudent,"post","http://www.qhdlink-student.top/student/banner.php",true,"username=ysf&userpwd=12345678&userclass=61&type=2")
+
+
+        var bannerImg=document.getElementById("bannerImg"); /*取出img容器的节点*/
+        var Button=document.getElementsByClassName("Button"); /*取出所有的button按钮*/
+        var num=0;  /*定义全局变量num,控制banner的切换次序*/
+        var aaa=0;  /*定义一个全局变量,用来取定时器函数,并在没有鼠标事件的时候清除定时器*/
+            
+        /*通过定时器实现banner图的每3000毫秒切换一次的效果的changeStart()函数*/
+        function changeStart(){
+            aaa=setInterval(function(){
+            if (num<4) {
+            bannerImg.style.transition="all 1s linear";
+            bannerImg.style.left=(-716.8)*(num)+"px";
+            num++;
+            }else{
+            bannerImg.style.transition="all 0s linear";  /*消除num=0时,bannerImg移动的过渡效果*/
+            num=0;
+            bannerImg.style.left=(-716.8)*(num)+"px";
+            
+            }
+        },3000)
+        }
+        changeStart();
+        
+        /*以下是当鼠标悬浮在banner图上时,图片停止自动切换的changeStop()函数*/
+        function changeStop(){
+            clearInterval(aaa); 
+        }
+        
+        /*以下是点击按钮实现对应banner图切换的change()函数*/
+        function buttonChange(Num){
+            num=Num+1;
+            bannerImg.style.transition="all 0s linear";
+            bannerImg.style.left=(-716.8)*(Num)+"px";
+        }
+        
+        /*以下是点击左右两个按钮实现banner图切换的buttonChange()函数*/
+        function asideChange(x){ /*通过传递形参x,判断往左/往右切换banner图*/
+            if (num!=4&&x==1) {
+                num++;
+            }else if(num==4&&x==1){
+                num=0;
+            }else if(num!=0&&x==0){
+                num--;
+            }
+            else if(num==0&&x==0){
+                num=5;
+            }
+            bannerImg.style.transition="all 0s linear";
+            bannerImg.style.left=(-716.8)*(num)+"px";
+        }
+    </script>
+</body>
+</html>

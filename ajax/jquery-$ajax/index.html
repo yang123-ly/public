@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css">
+    <style>
+        .header{
+            position: relative;
+            text-align: center;
+            background: chocolate;
+            line-height: 67px;
+        }
+        .navLeft{
+            height: 500px;
+            position: absolute;;
+            background-color: cornflowerblue;
+            top: 86px;
+            width: 231px;
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+        }
+        .navLeft>ul>li{
+            height: 135px;
+        }
+        .navLeft ul li{
+            list-style: none;           
+        }
+        .navLeft>ul>li>a{
+            text-decoration: none;
+            color:chocolate;
+            /* height: 50px; */
+            font-size:18px;
+        }
+        .navLeft>ul>li>ul{
+            display: none;
+        }
+        .navLeft>ul>li>ul>li{
+            height: 30px;
+            line-height: 30px;
+        }
+        .navLeft>ul>li>ul>li>a{
+            display: block;
+            color:#222;
+            font-size:16px;
+            text-decoration: none;
+            line-height: 30px;
+        }
+        .msg0>div,.msg1>div{
+            border-radius: 10px;
+            width: 480px;
+            height: 290px;
+            box-sizing: border-box;
+            overflow: hidden;
+            margin-top:15px;
+            margin-bottom:15px;
+            margin-left:10px;
+            background: cornsilk;
+            box-shadow: 5px 5px 5px #ccc;
+            
+        }
+        .msg0 .left,.msg1 .left{
+            width: 48%;
+            height: 235px;
+            float: left;
+            text-align: center;
+            line-height: 235px;
+
+        }
+        .msg0 img,.msg1 img{
+            width: 150px;
+            height:150px;
+            border-radius: 50%;
+            vertical-align: middle;
+        }
+        .msg0 .right h2,.msg1 .right h2{
+            text-align: center;
+            color: #ccc;
+        }
+        .msg0 .right span,.msg1 .right span{
+            text-indent: 2em;
+            display: -webkit-box;		
+            -webkit-box-orient: vertical; /* 如果浏览器内核不是WebKit的话就无法支持该方法 */ 
+            -webkit-line-clamp: 3;		/* 希望三行后溢出显示省略号 */ 
+            overflow: hidden;
+        }
+        .msg {
+            display: none;
+            width: 1000px;
+            height: auto;
+            min-height: 100px;
+            border-radius: 10px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        .msg2{
+            position: relative;
+        }
+        .show{
+            width:1000px !important;
+            height:500px !important;
+            border:solid 1px #f00;
+            overflow: hidden;
+            margin-left: 20px;
+        }
+        .contents{
+            width:4000px;
+            height: 300px;
+            position:relative;
+            /* margin:0px; */
+            left:0px;
+        }
+        .contents img{
+            width:1000px !important;
+            border-radius: 0 !important;
+            height:500px !important;
+            float: left !important;
+        }
+        .num{
+            text-align: center;
+            width:600px;
+            height: 30px;
+            position: absolute;
+            bottom:6px;
+            left:120px;
+            z-index:10;
+            background:rgba(0, 0, 0, .5)
+
+        }
+        .num span{
+            background:#a00;
+            color:#a00;
+            display: inline-block;
+            width:20px;
+            height: 20px;
+            margin:5px;
+
+        }
+        .num span.m{
+            background: #ff0;
+            color:#ff0;
+        }
+    </style>
+    <script src="./jquery-1.11.2.min.js"></script>
+    <script src="./new.js"></script>
+</head>
+<body>
+    <h2 class="header">朗科后台展示系统</h2>
+    <!-- 老师展示页面用jq$.ajax实现 -->
+    <div class="navLeft">
+        <ul>
+            <li>
+                <a href="#" class="checkTeacher">查看老师信息</a>
+                <ul>
+                    <li><a href="#" class="addli">添加老师</a></li>
+                    <li><a href="#" class="delli">删除老师</a></li>
+                    <li><a href="#">编辑老师</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" class="checkDetTeacher">查看详细老师信息</a>
+                <ul>
+                    <li><a href="#">添加老师</a></li>
+                    <li><a href="#">删除老师</a></li>
+                    <li><a href="#">编辑老师</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" class="checkStudent">查看学生</a>
+                <ul>
+                    <li><a href="#">添加学生</a></li>
+                    <li><a href="#">删除学生 </a></li>
+                    <li><a href="#">编辑学生</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" class="checkNews">查看新闻</a>
+            </li>
+        </ul>
+    </div>
+    <div id="msg" class="msg0 msg">
+        
+    </div>
+    <div class="addTeacher">
+        <h2>添加老师</h2>
+        <span class="del">x</span>
+        <form action="" name="formAddTea" class="formAddTea">
+            <div>
+                <label for="name">
+                    <span>姓名：</span><input type="text" name="name">
+                </label>
+            </div>
+            <div>
+                <label for="content">
+                    <span>添加内容：</span><input type="text" name="content">
+                </label>
+            </div>
+            <div>
+                <button class="submitTea" type="button">提交</button>
+            </div>
+        </form>
+    </div>
+    <div id="msg" class="msg1 msg">
+        <!-- <div>
+            <div class="left">
+                <img src="" alt="">
+            </div>
+            <div class="right">
+                <p>刘老师</p>
+                <p>工作时间</p>
+                <p>加入朗科时间</p>
+                <p>职位</p>
+                <p>入职前职位</p>
+                <p>被誉为n星级讲师</p>
+            </div> -->
+        </div>
+    </div>
+    <div  class="msg2 msg">
+        <div class="show">
+            <div class="contents">
+                <img src="" alt="">
+                <img src="" alt="">
+                <img src="" alt="">
+                <img src="" alt="">
+            </div>
+            
+        </div>
+        <div class="num">
+            <span class="m">1</span>
+            <span>2</span>
+            <span>3</span>
+            <span>4</span>
+        </div>
+    </div>
+    
+    <script src="./test.js"></script>
+</body>
+</html>

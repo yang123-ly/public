@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" name="form1">
+        <input type="text" name="username">
+        <input type="text" name="userpwd">
+        <input type="button" name="but">
+    </form>
+    <script src="./jquery-1.11.2.min.js"></script>
+    <script>
+        $(function() {
+            $("input[name=but]").click(function(){
+                var fd = new FormData();
+                fd.append("username",$('input[name=username]').val())
+                fd.append("userpwd",$("input[name=userpwd]").val())
+                fd.append("userclass",61);
+                fd.append("type",2);
+                $.ajax({
+                    url:"http://www.qhdlink-student.top/student/login.php",
+                    type:"POST",
+                    async:true,
+                    data:fd,
+                    processData:false,
+                    contentType:false,
+                    success:function(msg){
+                        console.log(msg);
+                    }
+                })
+            })
+        })
+    </script>
+</body>
+</html>
