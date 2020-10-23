@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .sss{
+            border:solid 1px #f00;
+            -webkit-text-size-adjust: none;/*字体调节默认为空*/
+            font-size:10px;
+        }
+        .sss>div{
+            text-transform: uppercase;
+            text-shadow: #0f0 5px -5px 2px;
+        }
+        p:first-child{
+            background:#f00;/*兄弟里是p的第一个标记*/
+            font-variant:small-caps;
+        }
+        p:first-of-type{
+            background:#0f0;/*同级兄弟都是p的第一个p标记*/
+        }
+        ::selection{
+            background: chartreuse;
+        }
+        :focus{
+            text-decoration:underline;
+        }
+        :default{
+            outline:#bbb solid 1px;
+        }
+        :enabled{
+            font-size:14px;
+            font-weight: bold;
+        }
+        :disabled{
+            font-size:14px;
+        }
+        /*专门为基于gecko内核的浏览器设置css样式*/
+        ::-moz-selection{
+            background-color:#ff0000;
+            color:#fff;
+        }
+        div:target{
+            background-color:#f00;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="sss">
+        <div>i am yangsaifei</div>
+        <p>p1</p>
+        <p>p1</p>
+        <p>p1</p>
+    </div>
+    <div class="sss">
+        <div>div1</div>
+
+        <p>p2</p>
+        <div>div2</div>
+        <p>p2</p>
+
+    </div>
+    <input type="text">     
+
+    <!-- h5可以指向对应的id值 -->
+    <a href="#top">指向top</a>
+    <a href="#banner">指向banner</a>
+    <div id="top">top</div>
+    <div id="banner">banner</div>
+    <div id="nav">nav</div>
+</body>
+</html>

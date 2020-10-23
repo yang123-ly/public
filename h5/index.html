@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./h5.css">
+    <style>
+        table,td{
+            border:solid 1px #000;
+            width:500px;
+            height:auto;
+        }
+        table>thead>tr{
+            background:#686868;
+            text-align: center;
+        }
+        table>tbody>tr{
+            text-align: center;
+        }
+        table>tfoot>tr{
+            text-align: center;
+            background:#ccc;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <hgroup>
+            <h1>dasdf</h1>
+            <h1>dasdf</h1>
+        </hgroup>
+    </header>
+    <nav>
+        <bdo dir="rtl">
+            欢迎光临
+        </bdo>
+        <!-- 缩写 -->
+        <abbr title="photoshop">ps</abbr>
+        <blockquote cite="www.baidu.com">百度</blockquote>
+    </nav>
+    <section>
+        <aside>测导航</aside>
+        <article>
+            <cite>html5文本标记说明</cite>
+            <code>计算机代码</code>
+            <dfn>专业术语</dfn>
+            <ins cite="" time='2009-09-09'>插入文本，可以是一段引用</ins>
+            <samp>定义范本：欠条的写法</samp>
+            <kbd>键盘功能键：ctrl</kbd>
+            <var>变量</var>
+        </article>
+    </section>
+
+    <!-- reserverd是将列表顺序逆转 -->
+    <ol reversed>
+  
+        <!-- contenteditable  可动态修改内容 -->
+        <li contenteditable="true">
+            首页（本条可局部修改）
+        </li>
+        <li>
+            推荐（下面那条隐藏）
+        </li>
+        <li hidden="true">
+            内容
+        </li>
+    </ol>
+
+    <!-- 图像映射-->
+    <img src="./img/1.jpg" alt="" style="width:500px;height:300px;" usemap="#mymap">
+    <map name="mymap">
+        <area shape="rect" coords="0,0,100,100" href="http://www.qq.com" alt="">
+        <area shape="circle" coords="150,50,50" href="http://www.bilibili.com" alt="">
+        <area shape="ploy" coords="225,0,275,0,300,50,275,100,225,100,200,50" href="http://baidu.com" alt="">
+    </map>
+
+    <!-- 表格 -->
+
+    <table>
+        <col style="width:200px">
+        <col span="2" style="width:100px;background-color:rgb(58, 55, 55)">
+        <thead>
+            <tr>
+                <td>姓名</td>
+                <td>学号</td>
+                <td>年龄</td>
+                <td>成绩</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>赵一</td>
+                <td>1</td>
+                <td>19</td>
+                <td>90</td>
+            </tr>
+            <tr>
+                <td>赵一</td>
+                <td>1</td>
+                <td>19</td>
+                <td>90</td>
+            </tr>
+            <tr>
+                <td>赵一</td>
+                <td>1</td>
+                <td>19</td>
+                <td>90</td>
+            </tr>
+            <tr>
+                <td>赵一</td>
+                <td>1</td>
+                <td>19</td>
+                <td>90</td>
+            </tr>
+            <tr>
+                <td>赵一</td>
+                <td>1</td>
+                <td>19</td>
+                <td>90</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr colspan='4'>
+                <td>
+                    制作人：杨赛飞
+                </td>
+
+            </tr>
+        </tfoot>
+    </table>
+    <form action="test.html" method="POST" enctype="multipart/form-data">
+        <label for="">用户名：<input type="text" name="username"></label><br>
+        <label for="pwd">密码：</label><input type="password" name="pwd" id="pwd"><br>
+        <input type="submit" name="sub" value="登录">
+        <input type="submit" name="sub2" value="注册" formaction="left.html" formmethod="GET" formenctype="application/x-www-form-urlencoded">
+    </form>
+
+    <form action="">
+        <label for="">
+            选择颜色<input type="color" name="color" ><br>
+        </label>
+        日期<input type="date" name="date"><br>
+        时间<input type="time"><br>
+        日期时间<input type="datetime"><br>
+        本地：<input type="datatime-local"><br>
+        电话：<input type="tel">
+        <!-- 移动端调用的数字键盘 -->
+        email: <input type="email">
+        url <input type="url">
+        数字 <input type="number"><br>
+        进度 <input type="range" min="0" max="100" step="10"><br>
+        搜索 <input type="search">
+        <input type="submit" value="提交">
+        
+    </form>
+    <form action="">
+        <select name='city' id="">
+            <optgroup label="河北省">
+                <option value="石家庄">石家庄</option>
+                <option value="邯郸">邯郸</option>
+                <option value="秦皇岛">秦皇岛</option>
+            </optgroup>
+            <optgroup label="黑龙江">
+                <option value="哈尔滨">哈尔滨</option>
+                <option value="绥化">绥化</option>
+            </optgroup>
+        </select>
+    </form>
+    <datalist id="mylist">
+        <option value="美术">美术</option>
+        <option value="篮球">篮球</option>
+        <option value="跑步">跑步</option>
+        <option value="看书">看书</option>
+    </datalist>
+
+    <footer>版权信息</footer>
+
+    <p class="c" id="msg"></p>
+    <p class="c-d"></p>
+    <p class="c d"></p>
+    <p class="p1">我是地方还是地方哈说服大家思考我是地方还是地方哈说服大家思考我是地方还是地方哈说服大家思考我是地方还是地方哈说服大家思考我是地方还是地方哈说服大家思考我是地方还是地方哈说服大家思考我是地方还是地方哈说服大家思考我是地方还是地方哈说服大家思考我是地方还是地方哈说服大家思考我是地方还是地方哈说服大家思考我是地方还是地方哈说服大家思考我是地方还是地方哈说服大家思考我是地方还是地方哈说服大家思考我是地方还是地方哈说服大家思考</p>
+    <p class="p2"></p>
+    <div class="p3"></div>
+    <div class="p3"></div>
+    <div class="p3"></div>
+
+    <div class="p4"></div>
+    <div class="p4"></div>
+    <div class="p4"></div>
+    <div class="p4"></div>
+
+    <ul>
+        <li>第1组</li>
+        <li>第2组</li>
+        <li>第3组</li>
+        <li>第4组</li>
+    </ul>
+    <ol>
+        <li>第1组</li>
+        <li>第2组</li>
+        <li>第3组</li>
+        <li>第4组</li>
+    </ol>
+    <ul class="ul1">
+        <li>第1组</li>
+        <li>第2组</li>
+        <li>第3组</li>
+        <li>第4组</li>
+    </ul>
+    <ul class="ul2">
+        <li>第1组</li>
+        <li>第2组</li>
+        <li>第3组</li>
+        <li>第4组</li>
+    </ul>
+    
+</body>
+</html>

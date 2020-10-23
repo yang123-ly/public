@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="mc" width="500" height="500" style="border:1px solid #000"></canvas>
+    <script>
+        var mc = document.getElementById('mc');
+        var ctxt = mc.getContext('2d');
+        var image = new Image();
+        image.src = 'img/1.jpg';
+        image.onload = function() {
+            //保持大小
+            ctxt.drawImage(image,20,10);
+            //绘制图片进行缩放
+            ctxt.drawImage(image,180,10,76,110);
+            var sd = 50;
+            var sh = 65;
+            ctxt.drawImage(image,2,50,sd,sh,265,10,sd*3,sh*3)
+        }
+    </script>
+</body>
+</html>

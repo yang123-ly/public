@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="mydiv" style="position: absolute;left: 0px;top: 0px;width: 200px;height: 200px;background-color: chocolate;">
+    触摸事件</div>
+    <script>
+        var obj = document.getElementById("mydiv");
+        obj.addEventListener("touchmove",function(event){
+            if(event.targetTouches.length == 1) {
+                event.preventDefault();
+                var touch = event.targetTouches[0];
+                obj.style.left = touch.pageX - 100 + "px";
+                obj.style.top = touch.pageY - 100 + "px";
+            }
+        },false)
+    </script>
+</body>
+</html>

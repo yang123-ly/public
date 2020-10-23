@@ -1,0 +1,43 @@
+@width:100px;
+@height:100px;
+@bg:#f00;
+#mydiv{
+    width: 100px;
+    height: 100px;
+    background: #f00;
+}
+*{
+    margin: 0 auto;
+}
+
+.fn(@w,@h,@c,@b){
+    width: @w;
+    height: @h;
+    color: @c;
+    background: @b;
+}
+.header{
+    .fn(200px,300px,#fff,#f00);
+    clear: both
+}
+.nav{
+    .fn(300px,300px,#fff,#0ff);
+    float: left;
+}
+.contents{
+    .fn(300px,300px,#fff,rgb(26, 33, 68));
+    box-sizing: border-box;
+    clear: both;
+}
+.contents .left{
+    .fn(100px,300px,rgb(211, 21, 21),rgb(186, 214, 29));
+    float: left;
+}
+.contents .center{
+    .fn(100px,300px,rgb(38, 153, 44),rgb(155, 18, 155));
+    float: left;
+}
+.contents .right{
+    .fn(100px,300px,rgb(94, 219, 90),rgb(36, 221, 221));
+    float: left;
+}

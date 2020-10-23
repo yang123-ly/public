@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" name="form1">
+        上传：<input type="file" name="pic">
+        <input type="submit" value="提交" name="sub" id="sub">
+        <span id="spanText"></span>
+    </form>
+    <script>
+        //判读上传文件类型与大小
+        document.form1.sub.setAttribute('disabled','false');
+        document.form1.pic.onchange = function() {
+            var f = document.form1.pic.files;
+            console.log('对象的名称；s%，对象的类型；s%，对象的大小；f%',f[0].name,f[0].type,f[0].size)
+            var sub = document.getElementById('sub');
+            var span = document.getElementById('spanText');
+            if(f[0].type == "image/jpeg" || f[0].type == "image/png" || f[0].type == "image/gif"){
+                document.form1.sub.removeAttribute('disabled');
+                if(f[0].size <= 1048576){
+                    document.form1.sub.removeAttribute('disabled');
+                }else{
+                    document.form1.sub.setAttribute('disabled','true');
+                span.innerHTML = '文件类型应小于1M'
+                }
+            }else{
+                document.form1.sub.setAttribute('disabled','true');
+                span.innerHTML = '文件类型应该为jpg，png，gif'
+
+            }
+        }
+    </script>
+    <script>
+        
+    </script>
+</body>
+</html>

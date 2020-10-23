@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="mc" width="500" height="500" style="border:1px solid #000"></canvas>
+    <script>
+        var mc = document.getElementById('mc');
+        var ctxt = mc.getContext('2d');
+        ctxt.translate(100,100);//将（0,0）坐标平移
+        ctxt.scale(0.5,0.5);//缩放
+        ctxt.rotate(Math.PI/2);//旋转
+        ctxt.fillRect(0,0,200,100);
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+#colorChange ul {
+  display: flex;
+  justify-content: space-around;
+}
+#colorChange li {
+  border-radius: 4px;
+  width: 30px;
+  height: 30px;
+  list-style: none;
+}
+.color1 {
+  background: #0000ff;
+}
+.color2 {
+  background: #ff0000;
+}
+.color3 {
+  background: #00ff00;
+}
+.color4 {
+  background: #ffff00;
+}
+.color5 {
+  background: #00ffff;
+}
+.color6 {
+  background: #ff00ff;
+}
+html {
+  background: #fff;
+}

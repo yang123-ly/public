@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="mc" width="500" height="500" style="border:1px solid #000"></canvas>
+    <script>
+        var mc = document.getElementById('mc');
+        var ctxt = mc.getContext('2d');
+        ctxt.arc(100,100,50,0,Math.PI*2,true);
+        ctxt.closePath();
+        ctxt.fillStyle='#ff0';
+        ctxt.shadowBlur=5;
+        ctxt.shadowColor='#333';
+        ctxt.shadowOffsetx = 10;
+        ctxt.shadowOffsety = 10;
+        ctxt.fill();
+        
+    </script>
+</body>
+</html>

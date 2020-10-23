@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="mc" width="500" height="500" style="border:solid 1px #000"></canvas>
+    <script>
+        var mc = document.getElementById('mc');
+        var ctxt = mc.getContext('2d');
+
+        //圆形矩阵
+        ctxt.moveTo(25,20);
+        ctxt.lineTo(270,20);
+        ctxt.fillStyle = '#f00';
+        ctxt.fill();
+        ctxt.stroke();
+
+        ctxt.beginPath();
+        // ctxt.moveTo(25,20)
+        ctxt.arc(25,25,5,Math.PI,Math.PI*1.5,false);
+        ctxt.fillStyle = '#f00';
+        ctxt.fill();
+        ctxt.stroke();
+
+        ctxt.beginPath();
+        ctxt.moveTo(20,25);
+        ctxt.lineTo(20,100);
+        ctxt.stroke();
+
+        ctxt.beginPath();
+        ctxt.arc(25,100,5,Math.PI/2,Math.PI,false);
+        ctxt.stroke();
+
+        ctxt.beginPath();
+        ctxt.moveTo(25,105)
+        ctxt.lineTo(270,105);
+        ctxt.stroke();
+
+        ctxt.beginPath();
+        ctxt.arc(270,100,5,0,Math.PI/2,false);
+        ctxt.fill();
+        ctxt.stroke();
+
+        ctxt.beginPath();
+        ctxt.fillStyle = '#f00';
+        ctxt.moveTo(275,100);
+        ctxt.lineTo(275,25);
+        ctxt.fillStyle = '#f00';
+        ctxt.fill();
+        ctxt.stroke();
+
+        ctxt.beginPath()
+        ctxt.arc(270,25,5,Math.PI*1.5,0,false);
+        ctxt.fill();
+        ctxt.stroke();
+
+
+    </script>
+</body>
+</html>

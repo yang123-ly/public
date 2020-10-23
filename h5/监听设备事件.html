@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 安卓系统进行监听物理旋转 -->
+    <div id="demo">旋转手机进行旋转</div>
+    <!-- <script>
+        function orientC() {
+            switch(window.orientation){
+                case 0:
+                alert(0);break;
+                case -90:
+                alert(-90);break;
+                case 90:
+                alert(90);break;
+                case 180:
+                alert(180);break;
+            }
+        }
+        orientC();
+        window.addEventListener("orientationchange",orientC,false)
+    </script> -->
+    <script>
+        window.addEventListener('deviceorientation', function(event) {
+            var demo = document.getElementById("demo");
+            var z = Math.floor(event.alpha); 
+            var x = Math.floor(event.beta); 
+            var y = Math.floor(event.gamma); 
+            demo.innerHTML = "Z=" + z + ",X=" + x + ",Y=" + y + "<br>";
+        });
+    </script>
+    <!-- <script>
+                var EventUtil = {
+            addHandler:function (element,type,handler) {
+                if(element.addEventListener) {
+                    element.addEventListener(type,handler,false)
+                }else if(element.addachEvent) {
+                    element.attachEvent("on" + type,handler);
+                }else{
+                    element["on" + type] = handler;
+                }
+            }
+        }
+        EventUtil.addHandler(window,"deviceorientation",function(event){
+            var demo = document.getElementById("demo");
+            var z = Math.floor(event.alpha); 
+            var x = Math.floor(event.beta); 
+            var y = Math.floor(event.gamma); 
+            demo.innerHTML = "Z=" + z + ",X=" + x + ",Y=" + y + "<br>";
+        })
+    </script> -->
+</body>
+</html>

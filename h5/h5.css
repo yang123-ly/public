@@ -1,0 +1,69 @@
+p{
+    width: 300px;
+    height: 30px;
+    border: solid 1px #f00;
+}
+p[id]{
+    background:#ff0;
+}
+p[class~=d]{
+    background:#00f;
+}
+p[class|=c-d]{
+    background:rgb(95, 8, 117);
+}
+/* p元素的第一个字符 */
+.p1{
+    height: auto;
+}
+.p1::first-letter{
+    color:#f00;
+
+}
+/* 第一个字符的第一行字符 */
+.p1::first-line{
+    color:rgb(32, 190, 40);
+}
+.p2{
+    quotes: '<<' '>>';
+}
+.p2::before{
+    content:open-quote;
+}
+.p2::after{
+    content:close-quote;
+}
+
+/* 计时器 */
+.p3{
+    counter-increment: mynumber;
+}
+.p3::before{
+    content:counter(mynumber) '---';
+}
+.p4{
+    counter-increment: mycounter2;
+}
+.p4::before{
+    content:counter(mycounter2,upper-alpha) '.';
+}
+
+ul{
+    /* counter-increment: mycounter3;    */
+    list-style-type: hiragana;/*日本平假名字符*/
+}
+ol{
+    list-style-type: katakana-iroha;/*日本片假名字符*/
+}
+ul.ul1 li{
+    counter-increment: mycounter3;
+}
+ul.ul1 li:before{
+    content:counter(mycontent3,Lower-latin)',';/*小写拉丁文*/
+}
+ul.ul2 li{
+    counter-increment: mycounter4;
+}
+ul.ul2 li:before{
+    content:counter(mycontent4,Lower-geek)',';/*基本的希腊小写字母*/
+}

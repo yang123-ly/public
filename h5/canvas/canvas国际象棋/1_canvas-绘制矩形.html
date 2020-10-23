@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>绘制矩形</title>
+    <meta charset="utf-8" />
+</head>
+<script>
+		/*canvas - H5画布元素
+			canvas元素默认大小为 300X150 
+			建议通过canvas的width和height属性设置宽高值
+			如何使用canvas
+				1. 在html页面中定义canvas元素
+				2. JavaScript中
+				   获取html中的canvas元素对象
+				   通过元素对象的getContext() 方法创建画布对象
+				   这个方法需要接受一个参数 - 2d  3d
+				   参数 - "2d"  "3d"
+		*/
+</script>
+<body>
+    <canvas width="500px" height="300px" id="canvas"></canvas>
+	<script>
+//		1. 获取canvas元素对象
+		var canvas=document.getElementById("canvas");
+//		2. 创建画布对象
+		var context=canvas.getContext("2d");
+		console.log(context);
+//		3. 通过画布对象的API绘制图形
+/*
+		绘制矩形：
+		fillRect(x,y,width,height) - 绘制实心矩形
+			x,y表示x轴和y轴上的坐标 - 相对于画布对象的左上角的点
+			width 表示绘制矩形的宽度
+			height 表示绘制矩形的高度
+		strokeRect(x,y,width,height) - 绘制空心矩形
+
+		clearRect(x,y,width,height) - 清除指定区域内的矩形
+*/
+		context.fillRect(10,10,100,100);
+		context.strokeRect(120,10,100,100);
+
+		context.fillRect(240,10,100,100);
+		context.clearRect(250,20,80,80);
+	</script>
+</body>
+</html>

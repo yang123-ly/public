@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--文本标记  -->
+    <mark>重点关注</mark>
+    <!-- 语义化标记，提交服务器代表的是时间 -->
+    <time datetime="2020-8-29 14:30">星期六下午</time>
+
+    <!-- 特殊属性 -->
+    <meter value="4" min="0" max="12"></meter>
+    <progress value="2" min='2' max='12'></progress>
+
+    <!-- 音频播放器 -->
+    <video id='mv' src="./img/mda-keihfqfq553in3js.mp4"  controls loop='2' width="400" height="400"></video>
+    <audio src="./img/mda-keihfqfq553in3js.mp4" controls></audio>
+    <button value="播放" id="btn">播放</button>
+    <span id="playTime">asdf</span>
+    <script>
+        
+        var  button = document.getElementById('btn');
+        var mv = document.getElementById('mv')
+        var detail = document.getElementById('playTime');
+        mv.ontimeupdate = function() {
+            detail.innerHTML = mv.currentTime + '/' + mv.duration;
+        }
+        button.onclick = function() {
+            if(mv.paused) {
+                mv.play();
+                button.innerHTML = '暂停'
+            }else{
+                mv.pause
+                ();
+                button.innerHTML = '播放';
+            }
+        }
+        
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="mydiv">右键或者按住ctrl键单击</div>
+    <ul id="mymenu" style="position:absolute;visibility:hidden;background:#ff0">
+    <li><a href="#">百度</a></li>
+    <li><a href="#">百度</a></li>
+    <li><a href="#">百度</a></li>
+    </ul>
+    <script>
+        window.onload = function() {
+            document.getElementById("mydiv").oncontextmenu = function(event) {
+                event.preventDefault();
+                var menu = document.getElementById("mymenu");
+                menu.style.left = event.clientX + 'px';
+                menu.style.top = event.clientY + 'px';
+                menu.style.visibility = "visible";
+            }
+            document.onclick = function(event) {
+                document.getElementById("mymenu").style.visibility = "hidden"
+            }
+        }
+    </script>
+</body>
+</html>

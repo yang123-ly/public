@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./change.css">
+</head>
+<body>
+    <div id="colorChange">
+        <ul>
+            <li class="color1"></li>
+            <li class="color2"></li>
+            <li class="color3"></li>
+            <li class="color4"></li>
+            <li class="color5"></li>
+            <li class="color6"></li>
+        </ul>
+        <h2 style="text-align: center;">点检更改颜色</h2>
+    </div>
+    <script>
+        var lis = document.querySelectorAll('li');
+        console.log(lis);
+        for(let i in lis) {
+            lis[i].onclick = function() {
+                console.log(this.className);
+                document.body.classList.add(this.className);
+            }
+        }
+    </script>
+</body>
+</html>

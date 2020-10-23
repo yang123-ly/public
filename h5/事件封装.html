@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var EventUtil = {
+            addHandler:function (element,type,handler) {
+                if(element.addEventListener) {
+                    element.addEventListener(type,handler,false)
+                }else if(element.addachEvent) {
+                    element.attachEvent("on" + type,handler);
+                }else{
+                    element["on" + type] = handler;
+                }
+            }
+        }
+
+
+        var showCount = 0;
+        EventUtil.addHandler(window,"load",function() {
+            alert("Load fired")
+        });
+        EventUtil.addHandler(window,"pageshow",function(event) {
+            showCount++;
+            alert("Show has been fired" +showCount + "time.Persisted? " + event.persisted);
+        })
+    </script>
+</body>
+</html>

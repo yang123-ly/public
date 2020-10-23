@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="mydiv" style="position: absolute;left: 0px;top:0px;width: 200px;height: 200px;;background: #f00;"></div>
+    <script>
+        //移动端手势事件
+        function handleGestureEvent(event) {
+            var output = document.getElementById("mydiv");
+            switch(event.type){
+                case "gesturestart":
+                    output.innerHTML = "Gesturestarted(rotation=" + event.rotation + ",scale=" + event.scale + ")";
+                    break;
+                case "gestureend":
+                    output.innerHTML += "<br>Gesture ended (rotation+"+event.rotation+",scale="+event.scale+")";
+                    break;
+                case "gesturechange":
+                    ouput.innerHTML += "<br>Getsure changed(rotation += "+event.rotation+",scale+"+event.scale + ")";
+                    break;
+            }
+        }
+        document.addEventListener("gesturestart",handleGestureEvent,false);
+        document.addEventListener("gestureend",handleGestureEvent,false);
+        document.addEventListener("gesturechange",handleGestureEvent,false);
+        document.getElementById("mydiv").innerHTML = "123"
+    </script>
+</body>
+</html>

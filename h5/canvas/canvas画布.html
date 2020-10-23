@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="mc" width="500" height="300" style="border:solid 1px black;"></canvas>
+    <canvas id="mc1" width="500" height="300" style="border:solid 1px black;"></canvas>
+    <canvas id="mc2" width="500" height="300" style="border:solid 1px black;"></canvas>
+    <canvas id="mc3" width="500" height="300" style="border:solid 1px black;"></canvas>
+    <script>
+        //获取canvas对象
+        var canvas = document.getElementById('mc');
+        //创建画布对象
+        var ctext = canvas.getContext('2d');
+
+
+        //改变填充颜色
+        // ctext.fillStyle = '#f00';
+        // //改变边框和路径颜色
+        // ctext.strokeStyle = '#0f0';
+        // ctext.globalAlpha = '0.5';//改变全局透明度
+        // ctext.fillRect(10,10,100,60);//创造一个矩形区域
+        // ctext.strokeRect(10,80,100,60);//创造一个矩形边框
+        // ctext.font = '30px 微软雅黑';//和css的font复合属性设置方式一样，可以添加大小和字体
+        // ctext.fillText('link朗科',120,50);//创造一个文字
+        // ctext.strokeText('link朗科',120,100);//创造出带边框的文字
+
+        //线
+        // ctext.beginPath();//新的路径开始
+        // ctext.moveTo(10,10);//路径开始
+        // ctext.lineTo(110,10);//画一条直线
+        // ctext.lineTo(60,70);//画第二条线
+        // ctext.lineWidth = '10';//线的宽度
+        // ctext.lineCap = 'round';//线帽
+        // // ctext.closePath();//闭合路径
+        // ctext.fillStyle='#f00';
+        // ctext.fill();//给闭合图形添加颜色
+        // ctext.stroke();//把刚才直线路径填充
+        // ctext.moveTo(10,10);
+        // ctext.lineTo(150,150);
+        // ctext.lineTo(10,30);
+        // ctext.stroke();
+
+
+        //圆
+        ctext.beginPath();
+        // ctext.arc(100,100,60,0,Math.PI/2,true);//圆心横坐标，圆心纵坐标，半径，开始角度，结束角度，方向
+        ctext.arc(100,100,50,0,Math.PI,false);//圆心横坐标，圆心纵坐标，
+        ctext.closePath();//闭合
+        ctext.stroke();
+    </script>
+    <script>
+        const mc1 = document.getElementById('mc1');
+        const canvas1 = mc1.getContext('2d');
+        canvas1.beginPath();
+        canvas1.moveTo(20,270);        
+        canvas1.lineTo(20,80);
+        canvas1.stroke();
+
+        canvas1.beginPath();
+        canvas1.moveTo(20,270);
+        canvas1.lineTo(230,270);
+        canvas1.lineCap='butt';
+        canvas1.fillText('100',9,78)
+        canvas1.fillText('100',233,272)
+        canvas1.stroke();
+
+        //第一个矩形
+        canvas1.fillStyle='#f00';
+        canvas1.fillRect(50,207,20,63);
+        canvas1.fillText("30%",50,200)
+        // canvas1.closePath();
+
+        //第二矩形
+        canvas1.fillStyle='#0f0';
+        canvas1.fillRect(100,223,20,47)
+        canvas1.fillText("25%",100,220)
+
+        //第三个矩形
+        canvas1.fillStyle="#00f";
+        canvas1.fillRect(150,128,20,142)
+        canvas1.fillText("75%",150,123)
+        // canvas1.stroke();
+    </script>
+    <script>
+
+        //画房子
+        var mc2 = document.getElementById('mc2');
+        var canvas2 = mc2.getContext('2d');
+
+        //画房顶三角形
+        canvas2.beginPath();
+        canvas2.moveTo(250,50);
+        canvas2.lineTo(100,130);
+        canvas2.lineTo(400,130);
+        canvas2.fill();
+        canvas2.closePath();
+        canvas2.stroke();
+
+        //画房子下面的矩形
+        canvas2.beginPath();
+        canvas2.fillStyle='#fff';
+        canvas2.strokeRect(135,130,230,170);
+
+        //画门
+        canvas2.beginPath();
+        canvas2.strokeRect(150,180,50,150)
+        //门中间的线
+        canvas2.beginPath();
+        canvas2.moveTo(175,180);
+        canvas2.lineTo(175,300);
+        canvas2.stroke();
+        //门中间的两个圆圈
+        canvas2.beginPath();
+        canvas2.arc(170,230,4,0,Math.PI*2,true);
+        // canvas2.arc(100,100,50,0,Math.PI,false);
+        canvas2.stroke();
+        canvas2.beginPath();
+        canvas2.arc(180,230,4,0,Math.PI*2,true);
+        // canvas2.arc(100,100,50,0,Math.PI,false);
+        canvas2.stroke();
+
+        //窗户
+        canvas2.strokeRect(270,160,50,50);
+        canvas2.beginPath();
+        canvas2.moveTo(295,160);
+        canvas2.lineTo(295,210);
+        canvas2.stroke();
+        canvas2.beginPath();
+        canvas2.moveTo(270,185);
+        canvas2.lineTo(320,185);;
+        canvas2.stroke();
+    </script>
+
+    <!-- 画笑脸 -->
+    <script>
+        var mc3 = document.getElementById('mc3');
+        var canvas3 = mc3.getContext('2d');
+
+        //整个头
+        canvas3.arc(250,150,100,0,Math.PI*2,false);       
+        canvas3.fill();
+        canvas3.stroke();
+
+        //脸
+        canvas3.beginPath();
+        canvas3.arc(250,150,100,0,Math.PI,false);
+        canvas3.fillStyle='#fff';
+        canvas3.fill();
+        canvas3.stroke();
+        
+
+        //眼睛
+        canvas3.beginPath();
+        canvas3.arc(200,175,10,0,Math.PI*2,true);
+        canvas3.stroke();
+        canvas3.beginPath();
+        canvas3.arc(300,175,10,0,Math.PI*2,true);
+        canvas3.stroke();
+        canvas3.beginPath();
+        canvas3.arc(205,175,5,0,Math.PI*2,true);
+        canvas3.fillStyle="#000";
+        canvas3.fill();
+        canvas3.beginPath();
+        canvas3.arc(295,175,5,0,Math.PI*2,true);
+        canvas3.fillStyle="#000";
+        canvas3.fill();
+        canvas3.stroke();
+
+        //鼻子
+        canvas3.beginPath();
+        canvas3.fillStyle='#f00'
+        canvas3.moveTo(250,190);
+        canvas3.lineTo(240,210);
+        canvas3.lineTo(260,210);
+        canvas3.fill();
+        canvas3.closePath();
+        canvas3.stroke();
+
+
+        //嘴
+        canvas3.beginPath();
+        canvas3.fillStyle='#ff0';
+        canvas3.arc(250,230,15,0,Math.PI,false);
+        canvas3.fill();
+        canvas3.closePath();
+        canvas3.stroke();
+        
+
+        
+        //
+    </script>
+</body>
+</html>

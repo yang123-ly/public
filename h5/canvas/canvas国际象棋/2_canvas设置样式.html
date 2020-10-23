@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>设置图形样式</title>
+    <meta charset="utf-8" />
+</head>
+
+<body>
+	<canvas id="canvas" width="500px" height="300px"></canvas>
+<script>
+	var canvas=document.getElementById("canvas");
+	var context=canvas.getContext("2d");
+	/*
+		fillStyle - 设置填充样式
+			取值："颜色单词"  "#XXX"  "rgb(r,g,b)"
+		strokeStyle - 设置描边样式
+		注意：一定是先设置样式，再绘制图形
+	*/
+	context.fillStyle="red";
+	context.fillRect(10,10,100,100);
+	context.strokeStyle="blue";
+	context.strokeRect(120,10,100,100);
+</script>
+</body>
+</html>
